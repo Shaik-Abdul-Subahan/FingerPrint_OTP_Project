@@ -1,0 +1,231 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.otp-section, .fingerprint-section {
+    width: 100%;
+    margin: 10px 0; /* Space between sections */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background-color: #fbf96f;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.otp-form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.success-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+.success-message p {
+    margin: 10px 0;
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+input:disabled {
+    background-color: #f2f2f2;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.otp-display {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.otp-text {
+    font-size: 18px;
+    margin: 0;
+}
+
+.timer {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.btn-group {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-group button {
+    flex: 1;
+}
+
+/* Fingerprint Scanner Section */
+/* General Styling for Fingerprint Section */
+.fingerprint-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    padding: 20px;
+}
+
+.scanner-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.fingerprint-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image doesn't get stretched */
+    filter: none; /* Ensure no blur effect */
+}
+
+/* Animation for scanning line */
+.scanner-line {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 153, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
+    top: 0;
+    animation: scanAnimation 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes scanAnimation {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* Result Box Styling */
+.result-box {
+    background-color: #fbf96f;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.text-animate h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: transparent;
+    -webkit-text-stroke: 0.1vw #770753;
+    background: linear-gradient(180deg, rgba(247, 1, 120, 1) 0%, rgba(160, 8, 156, 1) 51%, rgb(13, 35, 178) 100%);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.6s;
+    letter-spacing: 2px;
+    animation: moveText 3s linear infinite;
+}
+
+@keyframes moveText {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+@keyframes textAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.text-animate {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    animation: textAnimation 5s ease-in-out;
+}

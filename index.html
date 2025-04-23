@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP and Fingerprint Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- OTP Section -->
+        <div class="otp-section">
+            <div class="card">
+                <div class="header">
+                    <h1 style="color:rgb(255, 19, 19)">Mobile</h1>
+                    <h2 style="color:black">OTP Verification</h2>
+                </div>
+                <div class="content" id="content">
+                    <button id="generateBtn" onclick="OTPFn()">Generate OTP</button>
+                    <div id="otpForm" class="otp-form">
+                        <input type="text" id="userOTP" placeholder="Enter OTP">
+                        <div class="btn-group">
+                            <button onclick="OTPVerifyFn()">Verify</button>
+                            <button onclick="clearFields()">Reset</button>
+                        </div>
+                    </div>
+                    <div id="successMessage" class="success-message">
+                        <i class="fas fa-check"></i>
+                        <p>OTP is Verified Successfully!</p>
+                    </div>
+                    <div id="errorMessage" class="error-message"></div>
+                    <div id="timer" class="timer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fingerprint Section -->
+        <div class="fingerprint-section">
+            <div class="card">
+                <div class="content">
+                    <!-- Status Section -->
+                    <div id="scan-to-analyse" class="text-animate">
+                        <h2>Scan for Authentication!</h2>
+                    </div>
+        
+                    <!-- Blood Group Result Section (Initially hidden, will show after scan) -->
+                    <div id="result-box" class="result-box" style="display: none;">
+                        <p id="result-text"></p>
+                    </div>
+                    <!-- Fingerprint image for scanning -->
+                    <div class="scanner-container">
+                        <img src="https://static.wixstatic.com/media/7e7bb8_0f70eb7780e243a58e5353a354c5652c~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7e7bb8_0f70eb7780e243a58e5353a354c5652c~mv2.jpg"
+                            alt="Fingerprint" id="fingerprint-img" class="fingerprint-img">
+                        <!-- Scanning line animation -->
+                        <div class="scanner-line" id="scanner-line"></div>
+                    </div>
+        
+                    
+        
+                    <!-- Reset Button (Initially hidden) -->
+                    <div class="btn-group">
+                        <button id="reset-btn" class="reset-btn" style="display: none;" onclick="resetScan()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
